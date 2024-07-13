@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="./orders.html">My orders</a></li>
+            <li><a href="" class="basket">Basket</a></li>
+            <li>
+              <a href=""
+                >Account <img src="./man-user-circle-black-icon.svg" alt=""
+              /></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      
+      <section class="big-img">
+        <div class="container">
+          <img src="./image.png" alt="" />
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="search">
+            <input type="text" id="search">
+            <button type="button" id="searchBtn">search</button>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="filter">
+            <select name="" id="filter">
+              <option value="none">None</option>
+              <option value="name">name</option>
+              <option value="price">price</option>
+            </select>
+          </div>
+          <div class="card-big">
+
+            <div class="card">
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal-order">
+          <div class="modal-order-inner">
+            <img src="./close.png" alt="" id="cancelIcon">
+            <div class="modal-content">
+              <img src="" alt="" id="pizzaPhoto">
+              <h2>Sure you want to accept?</h2>
+              <h3>Are you sure you want to accept this?</h3>
+              <div class="modal-btn">
+                <button id="cancelBtn">No, cancel</button>
+                <button id="Confirm">Yes, Confirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <a href="./basket.html">basket</a>
+    <script src="./script.js"></script>
+  </body>
+</html>

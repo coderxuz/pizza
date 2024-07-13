@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  font-size: 20px;
+}
+header nav ul a {
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header nav ul a:hover {
+  color: gray;
+}
+header nav ul a:hover img {
+  filter: brightness(0) saturate(100%) invert(53%) sepia(9%) saturate(18%) hue-rotate(339deg) brightness(93%) contrast(90%);
+}
+header nav ul img {
+  margin-left: 20px;
+  width: 20px;
+}
+
+.big-img img {
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 20%;
+  margin: 20px 0;
+}
+.card div {
+  display: flex;
+  justify-content: space-between;
+}
+.card-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  color: #000;
+}
+.card-items h2 {
+  text-transform: capitalize;
+}
+.card-items p {
+  font-size: 20px;
+}
+.card-items img {
+  width: 100%;
+}
+
+.card1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card1-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  color: #000;
+}
+.card1-items h2 {
+  text-transform: capitalize;
+}
+.card1-items p {
+  font-size: 20px;
+}
+.card1-items img {
+  width: 100%;
+}
+
+.card-big1 {
+  display: flex;
+  gap: 20%;
+  flex-wrap: wrap;
+}
+
+.modal-order {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  background-color: gray;
+  display: none;
+}
+.modal-order-inner {
+  background-color: #fefefe;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal-order #cancelIcon {
+  width: 20px;
+  float: right;
+}
+.modal-order #pizzaPhoto {
+  width: 90%;
+  margin: 20px auto;
+  display: block;
+}/*# sourceMappingURL=style.css.map */

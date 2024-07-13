@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    nav {
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            font-size: 20px;
+
+            a {
+                color: #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    color: gray;
+
+                    img {
+                        filter: brightness(0) saturate(100%) invert(53%) sepia(9%) saturate(18%) hue-rotate(339deg) brightness(93%) contrast(90%);
+                    }
+                }
+            }
+
+            img {
+                margin-left: 20px;
+                width: 20px;
+            }
+        }
+    }
+}
+
+.big-img {
+    img {
+        width: 100%;
+    }
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 20%;
+    margin: 20px 0;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-items {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 300px;
+        color: #000;
+
+        h2 {
+            text-transform: capitalize;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.card1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-items {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 300px;
+        color: #000;
+
+        h2 {
+            text-transform: capitalize;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.card-big1 {
+    display: flex;
+    gap: 20%;
+    flex-wrap: wrap;
+}
+
+.modal-order {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+    background-color: gray;
+    display: none;
+
+    &-inner {
+        background-color: #fefefe;
+        width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #cancelIcon{
+        width: 20px;
+        float: right;
+    }
+    #pizzaPhoto{
+        width: 90%;
+        margin: 20px auto;
+        display: block;
+    }
+
+}
