@@ -104,8 +104,8 @@ const byname = (arr) => {
     added.appendChild(element);
   });
 };
-const search = document.getElementById('search')
-const searchBtn = document.getElementById('searchBtn')
+const search = document.getElementById("search");
+const searchBtn = document.getElementById("searchBtn");
 console.log(search);
 console.log(searchBtn);
 get("pizza.json").then((data) => {
@@ -125,12 +125,25 @@ get("pizza.json").then((data) => {
     }
     byname(arr);
   });
-  search.addEventListener('input' , ()=>{
-    arr.map((e)=>{
-      if(e.name)
-    })
-  })
+  let arr2 = [] 
+  let arr1 = [] 
+  search.addEventListener("input", () => {
+    searchBtn.addEventListener("click", () => {
+      arr1 =[]
+      arr.map((e) => {
+        if (e.name === search.value.toLowerCase()) {
+          card.innerHTML = "";
+          cardBig.innerHTML = "";
+          console.log(search.value);
+          arr1.push(e)
+        }
+        byname(arr1);
+      });
+    });
+  });
   basketBtn.addEventListener("click", () => {
     window.open("./basket.html");
   });
 });
+let hello = 'Hello Hello'
+console.log(hello.toLowerCase());

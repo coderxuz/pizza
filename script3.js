@@ -21,23 +21,31 @@ get("pizza.json").then((data) => {
     });
   });
   orderData.forEach((item) => {
-    const card = document.createElement("div");
+    const div = document.createElement("div");
     const h2 = document.createElement("h2");
     const span = document.createElement("span");
     const p = document.createElement("p");
     const a = document.createElement("a");
     const img = document.createElement("img");
-
+    const h3 = document.createElement("h3")
     span.innerHTML = item.title;
     p.innerHTML = `${item.price} USD`;
     h2.innerHTML = item.name;
     img.src = `./${item.png}`;
+    h3.innerHTML = 'Status: Sending'
     a.classList = "card-items";
     a.href = "";
     a.appendChild(img);
     a.appendChild(h2);
     a.appendChild(span);
     orders.appendChild(a);
-    a.appendChild(p);
+    div.appendChild(p);
+    div.appendChild(h3)
+    a.appendChild(div)
+
+    div.style.display = 'flex'
+    div.style.alignItems = 'center'
+    div.style.justifyContent = 'space-between'
+    h3.style.fontWeight = '400'
   });
 })
