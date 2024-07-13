@@ -17,79 +17,85 @@ const byname = (arr) => {
   card.innerHTML = "";
   cardBig.innerHTML = "";
 
-  arr.forEach((item) => {
-    const h2 = document.createElement("h2");
-    const span = document.createElement("span");
-    const p = document.createElement("p");
-    const a = document.createElement("a");
-    const img = document.createElement("img");
-    const basket = document.createElement("button");
-    const order = document.createElement("button");
-    const div = document.createElement("div");
-    const basketId = document.createElement("p");
-    order.innerHTML = "Order";
-    basket.innerHTML = "add";
-    span.innerHTML = item.title;
-    p.innerHTML = `${item.price} USD`;
-    h2.innerHTML = item.name;
-    basketId.innerHTML = item.id;
-    img.src = `./${item.png}`;
-    a.classList = "card-items";
-    a.href = "";
-    a.appendChild(img);
-    a.appendChild(h2);
-    a.appendChild(span);
-    div.appendChild(p);
-    card.appendChild(a);
-    a.appendChild(div);
-    a.appendChild(basketId);
-    div.appendChild(basket);
-    div.appendChild(order);
-    basketId.style.display = "none";
+  if(arr.length === 0){
+    cardBig.innerHTML = 'not found'
+  }
+  if(arr.length>0){
 
-    let count = 0;
-    basket.addEventListener("click", (e) => {
-      e.preventDefault();
-      basketIdArr.push(
-        e.target.parentElement.parentElement.lastElementChild.innerHTML
-      );
-      localStorage.setItem("id", JSON.stringify(basketIdArr));
-    });
-
-    order.addEventListener("click", (e) => {
-      e.preventDefault();
-      const cancelIcon = document.querySelector("#cancelIcon");
-      const cancelBtn = document.querySelector("#cancelBtn");
-      const pizzaPhoto = document.querySelector("#pizzaPhoto");
-
-      cancelIcon.addEventListener("click", () => {
-        modal.style.display = "none";
-      });
-
-      cancelBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-      });
-
-      if (e.target.parentElement.parentElement.lastChild.innerHTML == item.id) {
-        pizzaPhoto.src = item.png;
-        itemId.push(item.id);
-        localStorage.setItem("orderId", JSON.stringify(itemId));
-      }
-      modal.style.display = "block";
-      const confirm = document.querySelector("#Confirm");
-
-      confirm.addEventListener("click", (e) => {
+    arr.forEach((item) => {
+      const h2 = document.createElement("h2");
+      const span = document.createElement("span");
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      const img = document.createElement("img");
+      const basket = document.createElement("button");
+      const order = document.createElement("button");
+      const div = document.createElement("div");
+      const basketId = document.createElement("p");
+      order.innerHTML = "Order";
+      basket.innerHTML = "add";
+      span.innerHTML = item.title;
+      p.innerHTML = `${item.price} USD`;
+      h2.innerHTML = item.name;
+      basketId.innerHTML = item.id;
+      img.src = `./${item.png}`;
+      a.classList = "card-items";
+      a.href = "";
+      a.appendChild(img);
+      a.appendChild(h2);
+      a.appendChild(span);
+      div.appendChild(p);
+      card.appendChild(a);
+      a.appendChild(div);
+      a.appendChild(basketId);
+      div.appendChild(basket);
+      div.appendChild(order);
+      basketId.style.display = "none";
+  
+      let count = 0;
+      basket.addEventListener("click", (e) => {
         e.preventDefault();
-        window.open("./orders.html");
+        basketIdArr.push(
+          e.target.parentElement.parentElement.lastElementChild.innerHTML
+        );
+        localStorage.setItem("id", JSON.stringify(basketIdArr));
       });
-
-      window.onclick = function (event) {
-        if (event.target == modal) {
+  
+      order.addEventListener("click", (e) => {
+        e.preventDefault();
+        const cancelIcon = document.querySelector("#cancelIcon");
+        const cancelBtn = document.querySelector("#cancelBtn");
+        const pizzaPhoto = document.querySelector("#pizzaPhoto");
+  
+        cancelIcon.addEventListener("click", () => {
           modal.style.display = "none";
+        });
+  
+        cancelBtn.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+  
+        if (e.target.parentElement.parentElement.lastChild.innerHTML == item.id) {
+          pizzaPhoto.src = item.png;
+          itemId.push(item.id);
+          localStorage.setItem("orderId", JSON.stringify(itemId));
         }
-      };
+        modal.style.display = "block";
+        const confirm = document.querySelector("#Confirm");
+  
+        confirm.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.open("./orders.html");
+        });
+  
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      });
     });
-  });
+  }
 
   const elements = Array.from(card.children);
   let added;
@@ -128,22 +134,13 @@ get("pizza.json").then((data) => {
   let arr2 = [] 
   let arr1 = [] 
   search.addEventListener("input", () => {
-    searchBtn.addEventListener("click", () => {
+    
       arr1 =[]
-      arr.map((e) => {
-        if (e.name === search.value.toLowerCase()) {
-          card.innerHTML = "";
-          cardBig.innerHTML = "";
-          console.log(search.value);
-          arr1.push(e)
-        }
-        byname(arr1);
-      });
-    });
+      arr1 = arr.filter(e => e.name.toLowerCase().includes(search.value.toLowerCase()));
+      byname(arr1);
   });
   basketBtn.addEventListener("click", () => {
     window.open("./basket.html");
   });
 });
-let hello = 'Hello Hello'
-console.log(hello.toLowerCase());
+
